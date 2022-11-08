@@ -1,6 +1,6 @@
 package app
 
-import "github.com/r0x16/GroundForce/src/shared/domain"
+import "github.com/r0x16/ThunderForce/src/shared/domain"
 
 type MainService struct {
 }

@@ -1,10 +1,10 @@
 package infraestructure
 
 import (
-	"github.com/r0x16/GroundForce/src/shared/app"
-	"github.com/r0x16/GroundForce/src/shared/infraestructure/drivers"
-	"github.com/r0x16/GroundForce/src/shared/infraestructure/drivers/db"
-	"github.com/r0x16/GroundForce/src/shared/infraestructure/drivers/framework"
+	"github.com/r0x16/ThunderForce/src/shared/app"
+	"github.com/r0x16/ThunderForce/src/shared/infraestructure/drivers"
+	"github.com/r0x16/ThunderForce/src/shared/infraestructure/drivers/db"
+	"github.com/r0x16/ThunderForce/src/shared/infraestructure/drivers/framework"
 )
 
 type Main struct {

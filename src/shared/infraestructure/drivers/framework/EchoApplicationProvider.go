@@ -6,9 +6,9 @@ import (
 	"github.com/foolin/goview/supports/echoview-v4"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"github.com/r0x16/GroundForce/src/shared/domain"
-	"github.com/r0x16/GroundForce/src/shared/infraestructure/drivers"
-	"github.com/r0x16/GroundForce/src/shared/infraestructure/module"
+	"github.com/r0x16/ThunderForce/src/shared/domain"
+	"github.com/r0x16/ThunderForce/src/shared/infraestructure/drivers"
+	"github.com/r0x16/ThunderForce/src/shared/infraestructure/module"
 )
 
 type EchoApplicationProvider struct {

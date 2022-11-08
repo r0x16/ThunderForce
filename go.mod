@@ -1,4 +1,4 @@
-module github.com/r0x16/GroundForce
+module github.com/r0x16/ThunderForce
 
 go 1.18
 

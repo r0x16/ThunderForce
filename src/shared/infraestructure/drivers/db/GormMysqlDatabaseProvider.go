@@ -3,8 +3,8 @@ package db
 import (
 	"os"
 
-	"github.com/r0x16/GroundForce/src/shared/domain"
-	"github.com/r0x16/GroundForce/src/shared/infraestructure/drivers/db/connection"
+	"github.com/r0x16/ThunderForce/src/shared/domain"
+	"github.com/r0x16/ThunderForce/src/shared/infraestructure/drivers/db/connection"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
