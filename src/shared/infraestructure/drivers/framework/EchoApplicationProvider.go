@@ -6,9 +6,12 @@ import (
 	"github.com/foolin/goview/supports/echoview-v4"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+
 	"github.com/r0x16/ThunderForce/src/shared/domain"
 	"github.com/r0x16/ThunderForce/src/shared/infraestructure/drivers"
 	"github.com/r0x16/ThunderForce/src/shared/infraestructure/module"
+
+	devices "github.com/r0x16/ThunderForce/src/devices/infraestructure/module"
 )
 
 type EchoApplicationProvider struct {
@@ -24,6 +27,7 @@ func (app *EchoApplicationProvider) Boot() {
 	server.Use(middleware.Recover())
 
 	server.Renderer = echoview.Default()
+	server.Static("/static", "static")
 
 	app.Bundle.Server = server
 }
@@ -32,6 +36,7 @@ func (app *EchoApplicationProvider) Boot() {
 func (app *EchoApplicationProvider) ProvideModules() []domain.ApplicationModule {
 	return []domain.ApplicationModule{
 		&module.MainModule{Bundle: app.Bundle},
+		&devices.DevicesModule{Bundle: app.Bundle},
 	}
 }
 
