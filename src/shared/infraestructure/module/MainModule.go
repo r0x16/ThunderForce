@@ -17,8 +17,6 @@ var _ domain.ApplicationModule = &MainModule{}
 // Setups base main module routes
 func (m *MainModule) Setup() {
 	m.Bundle.Server.GET("/", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "index", echo.Map{
-			"title": "ThunderForce",
-		})
+		return c.String(http.StatusOK, "ThunderForce")
 	})
 }

@@ -3,7 +3,6 @@ package framework
 import (
 	"os"
 
-	"github.com/foolin/goview/supports/echoview-v4"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
@@ -25,9 +24,6 @@ func (app *EchoApplicationProvider) Boot() {
 	server := echo.New()
 	server.Use(middleware.Logger())
 	server.Use(middleware.Recover())
-
-	server.Renderer = echoview.Default()
-	server.Static("/static", "static")
 
 	app.Bundle.Server = server
 }

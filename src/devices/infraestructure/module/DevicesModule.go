@@ -16,8 +16,6 @@ var _ domain.ApplicationModule = &DevicesModule{}
 
 func (m *DevicesModule) Setup() {
 	m.Bundle.Server.GET("/devices", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "devices/index", echo.Map{
-			"title": "ThunderForce Device Administration",
-		})
+		return c.String(http.StatusOK, "Devices Module")
 	})
 }
