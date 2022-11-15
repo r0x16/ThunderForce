@@ -6,11 +6,9 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
+	"github.com/r0x16/ThunderForce/src"
 	"github.com/r0x16/ThunderForce/src/shared/domain"
 	"github.com/r0x16/ThunderForce/src/shared/infraestructure/drivers"
-	"github.com/r0x16/ThunderForce/src/shared/infraestructure/module"
-
-	devices "github.com/r0x16/ThunderForce/src/devices/infraestructure/module"
 )
 
 type EchoApplicationProvider struct {
@@ -30,10 +28,7 @@ func (app *EchoApplicationProvider) Boot() {
 
 // Provides the list of Echo modules to bootstrap all the routes
 func (app *EchoApplicationProvider) ProvideModules() []domain.ApplicationModule {
-	return []domain.ApplicationModule{
-		&module.MainModule{Bundle: app.Bundle},
-		&devices.DevicesModule{Bundle: app.Bundle},
-	}
+	return src.ProvideModules(app.Bundle)
 }
 
 // Runs the HTTP server in the especified port and listens to errors
