@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
+	"github.com/r0x16/ThunderForce/src/devices/app"
 	"github.com/r0x16/ThunderForce/src/shared/infraestructure/drivers"
 )
 
@@ -14,5 +15,27 @@ import (
  * @return error
  */
 func DeleteDevicesAction(c echo.Context, bundle *drivers.ApplicationBundle) error {
-	return c.String(http.StatusOK, "Delete device")
+	id := c.Param("id")
+
+	application := getDeleter(bundle)
+
+	err := application.Delete(id)
+
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+
+	return c.JSON(http.StatusOK, nil)
+}
+
+/**
+ * Get application use case
+ *
+ * @param repository the device repository
+ * @return app.DeviceDeleter
+ */
+func getDeleter(bundle *drivers.ApplicationBundle) *app.DeviceDeleter {
+	repository := DeviceRepository(bundle.Database.Connection)
+
+	return app.DeleteDevice(repository)
 }

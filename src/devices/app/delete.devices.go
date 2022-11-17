@@ -24,10 +24,30 @@ func DeleteDevice(deviceRepository repository.DeviceRepository) *DeviceDeleter {
 }
 
 /**
+* Get device to update
+* @param id the id of the device
+* @return the device
+**/
+func (deleter *DeviceDeleter) getDeviceToDelete(id string) (*model.Device, error) {
+	device, err := deleter.deviceRepository.FindById(id)
+	if err != nil {
+		return nil, err
+	}
+
+	return device, nil
+}
+
+/**
 * Deletes a device
 * @param device the device to delete
 * @return an error if something goes wrong
 **/
-func (deleter *DeviceDeleter) Delete(device *model.Device) error {
+func (deleter *DeviceDeleter) Delete(id string) error {
+	device, err := deleter.getDeviceToDelete(id)
+
+	if err != nil {
+		return err
+	}
+
 	return deleter.deviceRepository.Delete(device)
 }
