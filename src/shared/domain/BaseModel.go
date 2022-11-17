@@ -3,6 +3,7 @@ package domain
 import (
 	"time"
 
+	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
 
@@ -19,8 +20,8 @@ import (
  *
  */
 type BaseModel struct {
-	ID        string `gorm:"primaryKey;type:uuid;default:UUID()"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt `gorm:"index"`
+	ID        uuid.UUID      `gorm:"primaryKey;type:uuid" json:"id"`
+	CreatedAt time.Time      `json:"created_at"`
+	UpdatedAt time.Time      `json:"updated_at"`
+	DeletedAt gorm.DeletedAt `gorm:"index" json:"-"`
 }

@@ -25,7 +25,7 @@ func (m *DevicesModule) Setup() {
 
 	devices.GET("", m.Bundle.ActionInjection(action.ListDevicesAction))
 	devices.GET("/:id", m.Bundle.ActionInjection(action.ShowDevicesAction))
-	devices.POST("/", m.Bundle.ActionInjection(action.StoreDevicesAction))
+	devices.POST("", m.Bundle.ActionInjection(action.StoreDevicesAction))
 	devices.PUT("/:id", m.Bundle.ActionInjection(action.UpdateDevicesAction))
 	devices.DELETE("/:id", m.Bundle.ActionInjection(action.DeleteDevicesAction))
 

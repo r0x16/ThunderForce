@@ -1,6 +1,7 @@
 package app
 
 import (
+	"github.com/google/uuid"
 	"github.com/r0x16/ThunderForce/src/devices/domain/model"
 	"github.com/r0x16/ThunderForce/src/devices/domain/repository"
 )
@@ -42,6 +43,7 @@ func (persister *DevicePersister) Persist(data *DeviceData) (*model.Device, erro
 		Description: data.Description,
 		Type:        data.Type,
 	}
+	device.ID = uuid.New()
 
 	err := persister.deviceRepository.Store(device)
 

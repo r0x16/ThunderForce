@@ -15,11 +15,11 @@ import "github.com/r0x16/ThunderForce/src/shared/domain"
 **/
 type Device struct {
 	domain.BaseModel
-	Name        string `gorm:"uniqueIndex;not null"`
-	Description string
-	Type        string `gorm:"not null"`
-	IP          string `gorm:"uniqueIndex;not null"`
-	Enabled     bool   `gorm:"not null default:true"`
-	Status      string `gorm:"not null default:'stateless'"`
-	Credentials []Credential
+	Name        string       `gorm:"uniqueIndex;not null" json:"name"`
+	Description string       `json:"description"`
+	Type        string       `gorm:"not null" json:"type"`
+	IP          string       `gorm:"uniqueIndex;not null" json:"ip"`
+	Enabled     bool         `gorm:"not null;default:true" json:"enabled"`
+	Status      string       `gorm:"not null;default:'stateless'" json:"status"`
+	Credentials []Credential `json:"credentials"`
 }
