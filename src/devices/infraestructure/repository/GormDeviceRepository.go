@@ -5,6 +5,7 @@ import (
 	"github.com/r0x16/ThunderForce/src/shared/domain"
 	"gorm.io/gorm"
 
+	ext1 "github.com/r0x16/ThunderForce/src/blueprints/domain/model"
 	dom "github.com/r0x16/ThunderForce/src/devices/domain/repository"
 )
 
@@ -88,6 +89,16 @@ func (r *GormDeviceRepository) FindByName(name string) (*model.Device, error) {
 	device := model.Device{}
 	result := r.db.Where("name = ?", name).Limit(1).Find(&device)
 	return &device, result.Error
+}
+
+/**
+ * This method find devices by given blueprint
+ * @param blueprint the blueprint to search
+ * @return []*model.Device the list of devices
+ * @return error the error if any
+**/
+func (*GormDeviceRepository) FindByBlueprint(blueprint *ext1.Blueprint) ([]*model.Device, error) {
+	panic("unimplemented")
 }
 
 /**

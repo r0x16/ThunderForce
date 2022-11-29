@@ -1,6 +1,10 @@
 package model
 
-import "github.com/r0x16/ThunderForce/src/shared/domain"
+import (
+	"github.com/r0x16/ThunderForce/src/shared/domain"
+
+	ext1 "github.com/r0x16/ThunderForce/src/blueprints/domain/model"
+)
 
 /**
  * This model represents a device in the application
@@ -15,11 +19,12 @@ import "github.com/r0x16/ThunderForce/src/shared/domain"
 **/
 type Device struct {
 	domain.BaseModel
-	Name        string       `gorm:"uniqueIndex;not null" json:"name"`
-	Description string       `json:"description"`
-	Type        string       `gorm:"not null" json:"type"`
-	IP          string       `gorm:"uniqueIndex;not null" json:"ip"`
-	Enabled     bool         `gorm:"not null;default:true" json:"enabled"`
-	Status      string       `gorm:"not null;default:'stateless'" json:"status"`
-	Credentials []Credential `json:"credentials"`
+	Name        string           `gorm:"uniqueIndex;not null" json:"name"`
+	Description string           `json:"description"`
+	Type        string           `gorm:"not null" json:"type"`
+	IP          string           `gorm:"uniqueIndex;not null" json:"ip"`
+	Enabled     bool             `gorm:"not null;default:true" json:"enabled"`
+	Status      string           `gorm:"not null;default:'stateless'" json:"status"`
+	Credentials []Credential     `json:"credentials"`
+	Blueprints  []ext1.Blueprint `gorm:"many2many:devices_blueprints" json:"blueprints"`
 }

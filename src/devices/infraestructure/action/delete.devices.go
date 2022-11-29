@@ -11,7 +11,8 @@ import (
 /**
  * DeleteDevicesAction deletes a device
  *
- * @param c
+ * @param c the echo context
+ * @param bundle the application bundle
  * @return error
  */
 func DeleteDevicesAction(c echo.Context, bundle *drivers.ApplicationBundle) error {
@@ -31,7 +32,7 @@ func DeleteDevicesAction(c echo.Context, bundle *drivers.ApplicationBundle) erro
 /**
  * Get application use case
  *
- * @param repository the device repository
+ * @param bundle the application bundle
  * @return app.DeviceDeleter
  */
 func getDeleter(bundle *drivers.ApplicationBundle) *app.DeviceDeleter {
