@@ -1,12 +1,10 @@
 package repository
 
 import (
-	"github.com/r0x16/ThunderForce/src/devices/domain/model"
+	"github.com/r0x16/ThunderForce/src/devices/domain/repository"
 	"github.com/r0x16/ThunderForce/src/shared/domain"
+	"github.com/r0x16/ThunderForce/src/shared/domain/model"
 	"gorm.io/gorm"
-
-	ext1 "github.com/r0x16/ThunderForce/src/blueprints/domain/model"
-	dom "github.com/r0x16/ThunderForce/src/devices/domain/repository"
 )
 
 /**
@@ -19,7 +17,7 @@ type GormDeviceRepository struct {
 }
 
 // GormDeviceRepository implements the DeviceRepository interface
-var _ dom.DeviceRepository = &GormDeviceRepository{}
+var _ repository.DeviceRepository = &GormDeviceRepository{}
 
 /**
  * This method initializes the repository
@@ -97,7 +95,7 @@ func (r *GormDeviceRepository) FindByName(name string) (*model.Device, error) {
  * @return []*model.Device the list of devices
  * @return error the error if any
 **/
-func (*GormDeviceRepository) FindByBlueprint(blueprint *ext1.Blueprint) ([]*model.Device, error) {
+func (*GormDeviceRepository) FindByBlueprint(blueprint *model.Blueprint) ([]*model.Device, error) {
 	panic("unimplemented")
 }
 

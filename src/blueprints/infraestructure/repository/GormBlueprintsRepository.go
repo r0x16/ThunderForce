@@ -1,10 +1,9 @@
 package repository
 
 import (
-	"github.com/r0x16/ThunderForce/src/blueprints/domain/model"
 	"github.com/r0x16/ThunderForce/src/blueprints/domain/repository"
-	ext1 "github.com/r0x16/ThunderForce/src/devices/domain/model"
 	"github.com/r0x16/ThunderForce/src/shared/domain"
+	"github.com/r0x16/ThunderForce/src/shared/domain/model"
 	"gorm.io/gorm"
 )
 
@@ -31,7 +30,7 @@ func (*GormBlueprintRepository) FindAll() ([]*model.Blueprint, error) {
 }
 
 // FindByDevice implements repository.BlueprintRepository
-func (*GormBlueprintRepository) FindByDevice(device *ext1.Device) ([]*model.Blueprint, error) {
+func (*GormBlueprintRepository) FindByDevice(device *model.Device) ([]*model.Blueprint, error) {
 	panic("unimplemented")
 }
 

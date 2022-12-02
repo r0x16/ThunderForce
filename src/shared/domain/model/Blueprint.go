@@ -17,4 +17,5 @@ type Blueprint struct {
 	Name        string    `gorm:"uniqueIndex;not null" json:"name"`
 	Description string    `json:"description"`
 	Services    []Service `gorm:"many2many:services_blueprints" json:"services"`
+	Devices     []Device  `gorm:"many2many:devices_blueprints" json:"devices"`
 }

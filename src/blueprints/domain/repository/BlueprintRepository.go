@@ -1,10 +1,8 @@
 package repository
 
 import (
-	"github.com/r0x16/ThunderForce/src/blueprints/domain/model"
 	"github.com/r0x16/ThunderForce/src/shared/domain"
-
-	ext1 "github.com/r0x16/ThunderForce/src/devices/domain/model"
+	"github.com/r0x16/ThunderForce/src/shared/domain/model"
 )
 
 /**
@@ -22,7 +20,7 @@ type BlueprintRepository interface {
 	FindById(id string) (*model.Blueprint, error)
 	FindByName(name string) (*model.Blueprint, error)
 	FindByService(service *model.Service) ([]*model.Blueprint, error)
-	FindByDevice(device *ext1.Device) ([]*model.Blueprint, error)
+	FindByDevice(device *model.Device) ([]*model.Blueprint, error)
 	Store(blueprint *model.Blueprint) error
 	Update(blueprint *model.Blueprint) error
 	Delete(blueprint *model.Blueprint) error

@@ -2,8 +2,8 @@ package app
 
 import (
 	"github.com/google/uuid"
-	"github.com/r0x16/ThunderForce/src/blueprints/domain/model"
 	"github.com/r0x16/ThunderForce/src/blueprints/domain/repository"
+	"github.com/r0x16/ThunderForce/src/shared/domain/model"
 )
 
 /**
